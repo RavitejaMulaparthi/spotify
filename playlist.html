@@ -14,8 +14,11 @@
     />
   </head>
   <body>
+    <div class="menu-btn" id="menuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
     <div class="container">
-      <div class="left">
+      <div class="left" id="sidebar">
         <div class="logo">
           <a
             href="https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_IN&gl=US"
@@ -63,7 +66,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#right-pop">
                 <img src="Images/love.svg" alt="" />
                 <span>Liked Songs</span>
               </a>
@@ -76,9 +79,10 @@
         </div>
       </div>
       <div class="right">
-        <div class="playlist-header">
+        <div class="playlist-header" id="right-pop">
           <div class="playlist-content">
             <div class="playlist-cover">
+              <!-- <a href="https://youtu.be/ic8j13piAhQ" target="_blank" title="CLICK HERE TO OPEN ALBUM" -->
               <img src="assets/pop-right now.svg" alt="" />
             </div>
             <div class="playlist-info">
@@ -89,7 +93,8 @@
               </div>
               <div style="height: 5px"></div>
               <div class="playlist-stats">
-                <img class="ime"
+                <img
+                  class="ime"
                   src="assets/spotify-logo.png"
                   width="24px"
                   height="24px"
@@ -116,16 +121,16 @@
                 <img src="assets/ThreeDots.svg" alt="" />
               </div>
             </div>
-            <div class="playlist-buttons-right normal">
+            <div class="playlist-buttons-right">
               <div class="playlist-buttons-search normal">
                 <img src="assets/Search.svg" alt="" />
               </div>
-              <div class="playlist-buttons-order ">Custom Order</div>
+              <div class="playlist-buttons-order">Custom Order</div>
             </div>
           </div>
 
           <div class="playlist-songs" id="listofsongs">
-            <table >
+            <table>
               <tr>
                 <th>#</th>
                 <th class="title">Title</th>
@@ -484,5 +489,21 @@
         </div>
       </div>
     </div>
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+
+// Toggle the sidebar when the menu button is clicked
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("show");
+});
+
+// Close the sidebar when clicking outside of it on small screens
+document.addEventListener("click", (event) => {
+  if (!menuBtn.contains(event.target) && !sidebar.contains(event.target)) {
+    sidebar.classList.remove("show");
+  }
+});
+  </script>  
   </body>
 </html>
