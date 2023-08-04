@@ -31,12 +31,7 @@
           <ul>
             <li>
               <a href="index.html" target="_blank">
-                <img
-                  src="Images/Home.svg"
-                  alt=""
-                  class="gray-filtered"
-                  class="bg"
-                />
+                <img src="Images/Home.svg" alt="" class="gray-filtered" />
                 <span>Home</span>
               </a>
             </li>
@@ -78,6 +73,8 @@
           <img src="Images/album art.svg" alt="" />
         </div>
       </div>
+
+      <!-- ----------------------------------------------------------------------------------------------- -->
       <div class="right">
         <div class="playlist-header" id="right-pop">
           <div class="playlist-content">
@@ -94,7 +91,6 @@
               <div style="height: 5px"></div>
               <div class="playlist-stats">
                 <img
-                  class="ime"
                   src="assets/spotify-logo.png"
                   width="24px"
                   height="24px"
@@ -125,7 +121,7 @@
               <div class="playlist-buttons-search normal">
                 <img src="assets/Search.svg" alt="" />
               </div>
-              <div class="playlist-buttons-order">Custom Order</div>
+              <div class="playlist-buttons-order"><p>Custom Order</p></div>
             </div>
           </div>
 
@@ -478,32 +474,62 @@
           <span>2:42</span>
         </div>
       </div>
-      <div class="other-features">
-        <img src="assets/Queue.svg" alt="que-icon" />
-        <img src="assets/Connect to a device.svg" alt="laptop-icon" />
-        <img src="assets/Volume.svg" alt="speaker icon" />
-        <div class="volume-bar">
-          <div class="progress-bar">
-            <div class="progress"></div>
+
+      <button class="expand-btn" id="expandBtn">
+        <i class="fas fa-ellipsis-v"></i>
+      </button>
+      <div class="expanded-content" id="expandedContent">
+        <div class="expanded-item">
+          <img src="assets/Queue.svg" alt="que-icon" />
+        </div>
+        <div class="expanded-item">
+          <img src="assets/Connect to a device.svg" alt="laptop-icon" />
+        </div>
+        <div class="expanded-item">
+          <img src="assets/Volume.svg" alt="speaker icon" />
+        </div>
+        <div class="expanded-item">
+          <div class="volume-bar">
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <script>
       const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.getElementById("sidebar");
+      const sidebar = document.getElementById("sidebar");
 
-// Toggle the sidebar when the menu button is clicked
-menuBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("show");
-});
+      // Toggle the sidebar when the menu button is clicked
+      menuBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+      });
 
-// Close the sidebar when clicking outside of it on small screens
-document.addEventListener("click", (event) => {
-  if (!menuBtn.contains(event.target) && !sidebar.contains(event.target)) {
-    sidebar.classList.remove("show");
-  }
-});
-  </script>  
+      // Close the sidebar when clicking outside of it on small screens
+      document.addEventListener("click", (event) => {
+        if (
+          !menuBtn.contains(event.target) &&
+          !sidebar.contains(event.target)
+        ) {
+          sidebar.classList.remove("show");
+        }
+      });
+      const expandBtn = document.getElementById("expandBtn");
+      const expandedContent = document.getElementById("expandedContent");
+
+      expandBtn.addEventListener("click", () => {
+        expandedContent.classList.toggle("show");
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !expandBtn.contains(event.target) &&
+          !expandedContent.contains(event.target)
+        ) {
+          expandedContent.classList.remove("show");
+        }
+      });
+    </script>
   </body>
 </html>
